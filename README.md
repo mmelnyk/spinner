@@ -14,10 +14,10 @@ import (
 	...
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	spin := spinner.NewSpinner(ctx)
-	
-	spin.Process("Long process message...")
-	// long process	
+	spin := spinner.NewSpinner(spinner.WithStyle(spinner.Style3Dots), spinner.WithElapsedTimer())
+	spin.Message("Long process message...")
+	spin.Process(ctx)
+	// long process
 	...
 ```
 
